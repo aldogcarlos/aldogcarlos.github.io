@@ -1,0 +1,179 @@
+/* Sitio de desarrollador independiente: tinta azul noche, papel frío y una línea de carril ámbar como único acento. */
+:root {
+  --papel: #f4f6f8;
+  --superficie: #ffffff;
+  --tinta: #13202c;
+  --tinta-2: #4a5866;
+  --linea: #dde2e8;
+  --carril: #e3a21a;
+  --enlace: #0b5c8a;
+  --titulos: 'Bricolage Grotesque', 'Public Sans', system-ui, sans-serif;
+  --texto: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papel: #0f1820;
+    --superficie: #16222d;
+    --tinta: #e8edf2;
+    --tinta-2: #a7b4c1;
+    --linea: #263544;
+    --enlace: #7cc4ec;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--enlace);
+  text-underline-offset: 3px;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--carril);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.pagina {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1rem 4rem;
+}
+
+/* La línea de carril: discontinua, a la izquierda del encabezado. */
+.encabezado {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.encabezado::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 4px;
+  background: repeating-linear-gradient(to bottom, var(--carril) 0 18px, transparent 18px 30px);
+  border-radius: 2px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--titulos);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+.lema {
+  font-size: 1.25rem;
+  color: var(--tinta-2);
+  margin: 0;
+  max-width: 34ch;
+}
+
+h2 {
+  font-size: 1.45rem;
+  margin: 2.75rem 0 0.75rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.35rem;
+}
+
+p,
+li {
+  max-width: 68ch;
+}
+
+.servicios {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.servicios li {
+  padding: 1rem 1.15rem;
+  background: var(--superficie);
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+}
+
+.servicios strong {
+  display: block;
+  font-family: var(--titulos);
+  font-size: 1.05rem;
+}
+
+.ficha {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1.25rem;
+  margin: 0;
+}
+
+.ficha dt {
+  color: var(--tinta-2);
+}
+
+.ficha dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.pie {
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--linea);
+  font-size: 0.9rem;
+  color: var(--tinta-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.volver {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.actualizado {
+  color: var(--tinta-2);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 520px) {
+  .pagina {
+    padding-top: 2.25rem;
+  }
+  .ficha {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+  .ficha dd {
+    margin-bottom: 0.6rem;
+  }
+}
