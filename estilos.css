@@ -154,6 +154,15 @@ li {
   gap: 0.5rem 1.5rem;
 }
 
+/* Selector de idioma: arriba a la derecha, discreto */
+.idioma {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
 .volver {
   display: inline-block;
   margin-bottom: 2rem;
